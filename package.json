@@ -1,0 +1,17 @@
+{
+  "name": "nodemailer-test",
+  "version": "1.0.0",
+  "description": "Testing nodemailer",
+  "main": "mailer.js",
+  "scripts": {
+    "test": "node mailer.js"
+  },
+  "keywords": [
+    "testing"
+  ],
+  "author": "Vikram Negi",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^10.0.0"
+  }
+}
