@@ -1,9 +1,8 @@
 const nodemailer = require("nodemailer");
-const { prependListener } = require("process");
 require("dotenv").config();
 
 const email = process.env.EMAIL;
-const pass = process.env.PASS;
+const clientId = process.env.GOOGLE_CLIENT_ID;
 
 async function main() {
   // dummy test mail account
@@ -11,12 +10,11 @@ async function main() {
 
   // transporter obj using default SMTP
   let transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false,
+    service: "gmail",
     auth: {
-      user: `${email}`,
-      pass: `${pass}`,
+      type: "OAuth2",
+      user: email,
+      clientId: clientId,
     },
   });
 
