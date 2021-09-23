@@ -4,7 +4,7 @@
   "description": "Testing nodemailer",
   "main": "mailer.js",
   "scripts": {
-    "test": "node mailer.js"
+    "test": "node app.js"
   },
   "keywords": [
     "testing"
@@ -12,6 +12,7 @@
   "author": "Vikram Negi",
   "license": "MIT",
   "dependencies": {
+    "@sendgrid/mail": "^7.4.7",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "googleapis": "^87.0.0",
