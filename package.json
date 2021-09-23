@@ -12,6 +12,7 @@
   "author": "Vikram Negi",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "nodemailer": "^6.6.3"
   }
 }
