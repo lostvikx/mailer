@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 require("dotenv").config();
-const mailOptions = require("./testMail.js");
+const mailOptions = require("./js/testMail");
 
 async function main() {
 
