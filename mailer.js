@@ -1,31 +1,22 @@
 const nodemailer = require("nodemailer");
 require("dotenv").config();
-
-const email = process.env.EMAIL;
-const clientId = process.env.GOOGLE_CLIENT_ID;
+const mailOptions = require("./testMail.js");
 
 async function main() {
-  // dummy test mail account
-  let testAcc = await nodemailer.createTestAccount();
 
-  // transporter obj using default SMTP
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
       type: "OAuth2",
-      user: email,
-      clientId: clientId,
+      user: process.env.EMAIL_ID,
+      clientId: process.env.OAUTH_CLIENTID,
+      refreshToken: process.env.OAUTH_REFRESH_TOKEN,
+      accessToken: process.env.OAUTH_ACCESS_TOKEN
     },
   });
 
   // send mail
-  let info = await transporter.sendMail({
-    from: `Vikram Negi <${email}>`,
-    to: `Vikram Negi <${pass}>`,
-    subject: "Send using node.js",
-    text: "hello, world",
-    html: "<h3 style=\"font-weight: 300\">Hello from the other side!</h3>",
-  });
+  let info = await transporter.sendMail(mailOptions);
 
   console.log("Messeage sent: %s", info.messageId);
 }
